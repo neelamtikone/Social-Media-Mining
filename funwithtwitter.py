@@ -103,3 +103,18 @@ data_set.head(5)
 top10 = api.trends_place(id=2473224)
 
 print (top10)
+
+user = api.get_user('myTwitter')
+print ("Retreiving friends for", user.screen_name)
+for friend in tweepy.Cursor(api.friends).items():
+    print ("\n", friend.screen_name)'''
+    
+    
+def process_friend(friend):
+    
+    print(friend.screen_name, '\t', friend.id)
+    print(friend.id)
+    print(friend.timeline,'\n').items(10)
+
+for friend in tweepy.Cursor(api.friends).items(25):
+    process_friend(friend)
